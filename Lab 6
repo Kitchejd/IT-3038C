@@ -1,2 +1,4 @@
-console.log("Hello World");
-print ("Hi World");
+Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object LastBootUpTime
+systeminfo | findstr /C:"Total Physical Memory"
+systeminfo | find "Available Physical Memory"
+
