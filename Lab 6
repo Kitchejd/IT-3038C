@@ -1,4 +1,26 @@
-Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object LastBootUpTime
-systeminfo | findstr /C:"Total Physical Memory"
-systeminfo | find "Available Physical Memory"
+import time 
+import os
+import socket 
+import psutil;
 
+hostname =socket.gethostname()
+print("This is the hostname: ",hostname)
+
+ip = socket.gethostbyname(hostname)
+print("This is the ip address: ",ip)
+
+
+time_string = time.strftime("%d:%I:%M:%S")
+
+seconds = time.time()\
+
+print("This is seconds ",seconds)
+print( "THis is the day and time " , time_string)
+
+process = psutil.Process()
+print("THis is memory ",process.memory_percent())
+print("THis is the free memory ",process.memory_full_info().rss)
+
+cprocess = psutil.cpu_percent()
+
+print (" THis is the proecesses ", cprocess)
